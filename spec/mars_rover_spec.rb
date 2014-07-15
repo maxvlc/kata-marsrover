@@ -3,7 +3,7 @@ require './mars_rover'
 describe "The Mars Rover" do
 
 	DEFAULT_POSITION = [0,0]
-	DEFAULT_DIRECTION = :N
+	DEFAULT_DIRECTION = "N"
 
 	it "has an initial starting point and a direction" do
 		expect(MarsRover.new.where_are_you).to eq DEFAULT_POSITION
@@ -20,5 +20,19 @@ describe "The Mars Rover" do
 		final_position = [0,1]
 		expect(MarsRover.new.turn("l")).to eq (final_position)
 		expect(MarsRover.new.turn("r")).to eq DEFAULT_POSITION
+	end
+
+	it "wrapping from one edge of the grid to another X grid" do
+		final_x = 21
+		final_y = 3
+		final_position = [0,3]
+		expect(MarsRover.new.wrapping(final_x,final_y)).to eq final_position
+	end
+
+	it "wrapping from one edge of the grid to another Y grid" do
+		final_x = 3
+		final_y = 21
+		final_position = [3,0]
+		expect(MarsRover.new.wrapping(final_x,final_y)).to eq final_position
 	end
 end
