@@ -1,11 +1,12 @@
-require '.mars_rover'
+require './mars_rover'
 
-define "Mars Rover" do
-
-	start = [x,y]
-	direction = N
+describe "Mars Rover" do
+	x = 0
+	y = 0
+	direction = "N"
+	position = [x,y]
 
 	it "has an initial starting point and a direction" do
-		expect(MarsRover.new(start,direction)).to eq ("Expecting order")
+		expect(MarsRover.new.ready(position,direction)).to eq ("Expecting order")
 	end
 end
