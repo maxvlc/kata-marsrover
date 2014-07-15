@@ -1,4 +1,5 @@
 require './mars_rover'
+require './compass'
 
 describe "The Mars Rover" do
 
@@ -34,5 +35,39 @@ describe "The Mars Rover" do
 		final_y = 21
 		final_position = [3,0]
 		expect(MarsRover.new.wrapping(final_x,final_y)).to eq final_position
+	end
+
+	it "knows where its looking" do
+		expect(Compass.new.direction).to eq (:N)		
+	end
+
+	it "knows how to turn left" do
+		compass = Compass.new
+		compass.left
+		expect(compass.direction).to eq (:W)
+	end
+
+	it "can turn 360o to the left" do
+		compass = Compass.new
+		compass.left
+		compass.left
+		compass.left
+		compass.left
+		expect(compass.direction).to eq (:N)
+	end
+
+	it "knows how to turn right" do
+		compass = Compass.new
+		compass.right
+		expect(compass.direction).to eq (:E)
+	end
+
+	it "can turn 360o to the right" do
+		compass = Compass.new
+		compass.right
+		compass.right
+		compass.right
+		compass.right
+		expect(compass.direction).to eq (:N)
 	end
 end

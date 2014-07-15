@@ -1,3 +1,5 @@
+require './compass'
+
 class MarsRover
 
 	DEFAULT_POSITION = [0,0]
@@ -9,7 +11,6 @@ class MarsRover
 	Y = 0
 	@rover_position
 	@rover_orientation
-
 
 	def initialize()
 		@rover_position = DEFAULT_POSITION
@@ -30,9 +31,8 @@ class MarsRover
 		@rover_position
 	end
 
-	def turn (order)
+	def turn(order)
 		@rover_position[1]+=STEP if order == "l"
-		@rover_orientation="W" 
 		@rover_position[1]-=STEP if order == "r"
 		@rover_orientation="N"
 		@rover_position
