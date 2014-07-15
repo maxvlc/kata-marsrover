@@ -14,4 +14,8 @@ describe "The Mars Rover" do
 	it "receives a character array of commands" do
 		expect(MarsRover.new.order(commands)).to eq ("Order Received")
 	end
+
+	it "Implement commands that move the rover forward/backward (f,b)." do
+		expect(MarsRover.new.order(commands)).to eq("f","b")
+	end
 end
